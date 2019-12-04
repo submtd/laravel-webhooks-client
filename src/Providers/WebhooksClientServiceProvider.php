@@ -3,6 +3,7 @@
 namespace Submtd\LaravelWebhooksClient\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Submtd\LaravelWebhooksClient\Commands\AddEndpoint;
 use Submtd\LaravelWebhooksClient\Services\WebhooksClientService;
 
 class WebhooksClientServiceProvider extends ServiceProvider
@@ -15,6 +16,9 @@ class WebhooksClientServiceProvider extends ServiceProvider
         $this->app->bind('webhooks-client', function () {
             return new WebhooksClientService();
         });
+        $this->commands([
+            AddEndpoint::class,
+        ]);
     }
 
     /**
