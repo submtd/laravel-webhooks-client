@@ -22,7 +22,7 @@ class ProcessWebhook extends Controller
                 'message' => 'Endpoint does not exist',
             ], 404);
         }
-        if ($request->get('hash') != md5($request->get('payload') . $webhookEndpoint->encryption_key)) {
+        if ($request->get('hash') != hash('sha256', $request->get('payload') . $webhookEndpoint->encryption_key)) {
             return response()->json([
                 'result' => 'error',
                 'message' => 'Hash mismatch',
