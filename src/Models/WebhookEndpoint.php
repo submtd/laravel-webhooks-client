@@ -2,13 +2,12 @@
 
 namespace Submtd\LaravelWebhooksClient\Models;
 
-use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Submtd\LaravelEncryptedFields\HasEncryptedFields;
 
 class WebhookEndpoint extends Model
 {
-    use GeneratesUuid, HasEncryptedFields;
+    use HasEncryptedFields;
 
     /**
      * Fillable attributes

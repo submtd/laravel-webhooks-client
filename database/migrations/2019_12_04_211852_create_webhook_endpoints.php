@@ -15,7 +15,6 @@ class CreateWebhookEndpoints extends Migration
     {
         Schema::create('webhook_endpoints', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uuid')->unique();
             $table->string('endpoint')->unique();
             $table->string('encryption_key');
             $table->timestamps();
