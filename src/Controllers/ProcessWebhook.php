@@ -13,6 +13,7 @@ class ProcessWebhook extends Controller
     public function __invoke(Request $request, $endpoint)
     {
         Log::debug('WEBHOOK ' . json_encode($request->all()));
+        
         $request->validate([
             'trigger' => 'required',
             'payload' => 'required',
