@@ -4,7 +4,6 @@ namespace Submtd\LaravelWebhooksClient\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Log;
 use Submtd\LaravelWebhooksClient\Events\WebhookEvent;
 use Submtd\LaravelWebhooksClient\Models\WebhookEndpoint;
 
@@ -12,8 +11,6 @@ class ProcessWebhook extends Controller
 {
     public function __invoke(Request $request, $endpoint)
     {
-        Log::debug('WEBHOOK ' . json_encode($request->all()));
-        
         $request->validate([
             'trigger' => 'required',
             'payload' => 'required',
